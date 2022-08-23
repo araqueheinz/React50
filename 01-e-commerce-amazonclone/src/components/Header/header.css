@@ -1,3 +1,7 @@
+.header__container {
+    position: relative;
+}
+
 .header {
     height: 60px; 
     display: flex;
@@ -16,7 +20,7 @@
 }
 
 .header__logoImage {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-right: 10px;
 }
 
@@ -30,6 +34,8 @@
     display: flex;
     flex: 1;
     align-items: center;
+    border-radius: 14px;
+    border-collapse: separate;
     margin: 0 10px;
 }
 
@@ -72,11 +78,33 @@
     display: flex;
     align-items: center;
     color: white;
-    margin-right: 20px;
+    margin-right: 50px;
     margin-left: 10px;
 }
 
 .nav__cartCount {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.suggestions {
+    position: absolute;
+    top: 60px;
+    left: 38%;
+    
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media(min-width: 600px) {
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media(min-width: 768px) {
+    
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media(min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
 }
