@@ -1,13 +1,14 @@
 import React from 'react';
 import './header.css';
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className='header__container'>
         <div className="header">
             <div className="header__logo">
-                <i className="fa-solid fa-store header__logoImage"></i>
-                <h2 className='header__logoTitle'>eShop</h2>
+                <Link to='/'><i className="fa-solid fa-store header__logoImage"></i></Link>
+                <Link to='/'><h2 className='header__logoTitle'>eShop</h2></Link>
             </div>
             <div className='header__search'>
                 <input type="text" className='header__searchInput' onChange={(e) => { console.log(e.target.value)}}/>
@@ -24,7 +25,7 @@ const Header = () => {
                 </div>
                 
                 <div className="nav__itemCart">
-                    <i className="fa-solid fa-cart-arrow-down"></i>
+                    <Link to="/checkout"><i className="fa-solid fa-cart-arrow-down"></i></Link>
                     <span className="nav__itemLineTwo nav__cartCount">0</span>
                 </div>
             </div>
