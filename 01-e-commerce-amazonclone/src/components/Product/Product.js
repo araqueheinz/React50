@@ -4,7 +4,7 @@ import './product.css';
 import { useStateValue } from '../../StateProvider';
 import { CART_ADD_ITEM } from '../../constants/cartConstants';
 
-const Product = ({id, title, rating, img, color, text, price}) => {
+const Product = ({id, title, rating, img, color, text, price }) => {
   const [state, dispatch] = useStateValue();
 
   const addToCart = (e) => {

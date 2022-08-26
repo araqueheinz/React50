@@ -9,7 +9,6 @@ const CheckoutScreen = () => {
     const [state, dispatch] = useStateValue();
     let count = 0
     
-
     return (
         <div className='checkout'>
             <div className='checkout__left'>
@@ -27,6 +26,7 @@ const CheckoutScreen = () => {
                             price={item.price}
                             rating={item.rating}
                             img={item.img}
+                            quantity={item.quantity}
                         />
                     )
                 })}

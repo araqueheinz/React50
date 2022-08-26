@@ -1,10 +1,12 @@
 import React from 'react';
 import './header.css';
 import { Link } from "react-router-dom";
-import { useStateValue } from '../../StateProvider';
+import { useStateValue } from '../../StateProvider'
+import { getTotalItems } from '../../reducer';
 
 const Header = () => {
-    const [{cart}, dispatch] = useStateValue();
+    const [{cart}] = useStateValue();
+    
 
   return (
     <div className='header__container'>
@@ -20,7 +22,7 @@ const Header = () => {
             <div className="header__nav">
                 <div className="nav__item">
                     <span className="nav__itemLineOne">Hello Guest</span>
-                    <span className="nav__itemLineTwo" aria-label='sign in' >Sign In</span>
+                    <Link to='/login'><span className="nav__itemLineTwo" aria-label='sign in' >Sign In</span></Link>
                 </div>
                 <div className="nav__item">
                     <span className="nav__itemLineOne">Your</span>
@@ -29,7 +31,7 @@ const Header = () => {
                 
                 <div className="nav__itemCart">
                     <Link to="/checkout"><i className="fa-solid fa-cart-arrow-down"></i></Link>
-                    <span className="nav__itemLineTwo nav__cartCount">{cart.length ? cart.length : 0}</span>
+                    <span className="nav__itemLineTwo nav__cartCount">{cart.length ? getTotalItems(cart) : 0}</span>
                 </div>
             </div>
         </div>
