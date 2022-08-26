@@ -30,7 +30,14 @@
     border-color: #a88734 #9c7e31 #846a29;
     border-radius: 5px;
     color: #111;
+    transition: all 1s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
+
+.product > button:hover {
+    transform: scale(1.1);
+}
+
 
 .product__price {
     margin-top: 5px;
