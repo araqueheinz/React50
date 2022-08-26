@@ -1,11 +1,17 @@
 import React from 'react'
 import Rating from '../Rating/Rating';
 import './product.css';
+import { useStateValue } from '../../StateProvider'
 
 const Product = ({id, title, rating, img, color, text}) => {
+  const [state, dispatch] = useStateValue();
 
   const addToCart = () => {
-    console.log('Hello Click here');
+    console.log("item")
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: { id, title, rating, img, color, text }
+    })
   }
 
   return (
