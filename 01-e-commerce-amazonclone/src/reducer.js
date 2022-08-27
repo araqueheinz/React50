@@ -3,7 +3,7 @@
     level states and define actions
     to make changes to the state;
 */
-import { CART_ADD_ITEM, CART_REMOVE_ALL_ITEMS, CART_REMOVE_ONE_ITEM } from './constants/cartConstants';
+import { CART_ADD_ITEM, CART_REMOVE_ALL_ITEMS } from './constants/cartConstants';
 export const initialState = {
     cart: [],
 }
@@ -28,7 +28,6 @@ const reducer = (state, action) => {
         case CART_ADD_ITEM:
             if(index >= 0) {
                 cartState[index] = { ...cartState[index], quantity: cartState[index].quantity++ || 1}
-                console.log(cartState)  
                 return {
                     ...state,
                     cart: [...cartState]

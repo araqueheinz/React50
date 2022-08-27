@@ -3,11 +3,9 @@ import './checkoutscreen.css';
 import CheckoutProduct from '../../components/CheckoutProduct/CheckoutProduct';
 import Subtotal from '../../components/Subtotal/Subtotal';
 import { useStateValue } from '../../StateProvider'
-import { getCartToal } from '../../reducer';
 
 const CheckoutScreen = () => {
-    const [state, dispatch] = useStateValue();
-    let count = 0
+    const [state] = useStateValue();
     
     return (
         <div className='checkout'>
@@ -17,10 +15,9 @@ const CheckoutScreen = () => {
                     Your Shopping Carts
                 </h2>
                 {state.cart.map(item => {
-                    count++
                     return (
                         <CheckoutProduct
-                            key={count}
+                            key={item.id}
                             id={item.id}
                             title={item.title}
                             price={item.price}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './loginscreen.css';
 import { Link, useNavigate } from "react-router-dom";
-//import { auth } from "./firebase";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const LoginScreen = () => {
     
@@ -10,29 +11,33 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
 
     const signIn = e => {
-        // e.preventDefault();
-
-        // auth
-        //     .signInWithEmailAndPassword(email, password)
-        //     .then(auth => {
-        //         history.push('/');
-        //     })
-        //     .catch(error => alert(error.message))
-
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            history('/');
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log({errorCode, errorMessage})
+          });
     }
 
     const register = e => {
-        // e.preventDefault();
-
-        // auth
-        //     .createUserWithEmailAndPassword(email, password)
-        //     .then((auth) => {
-        //         if (auth) {
-        //             history.push('/');
-        //         }
-        //     })
-        //     .catch(error => alert(error.message))
-
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          history('/');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log({errorCode, errorMessage})
+        });
     }
     
   return (

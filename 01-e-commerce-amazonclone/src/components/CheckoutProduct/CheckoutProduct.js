@@ -2,7 +2,7 @@ import React from 'react'
 import './checkoutproduct.css'
 import Rating from '../Rating/Rating';
 import { useStateValue } from '../../StateProvider'
-import { CART_REMOVE_ALL_ITEMS, CART_REMOVE_ONE_ITEM } from '../../constants/cartConstants';
+import { CART_REMOVE_ALL_ITEMS } from '../../constants/cartConstants';
 
 const CheckoutProduct = ({id, title, rating, img, color, text, price, quantity}) => {
   const [state, dispatch] = useStateValue();
@@ -10,13 +10,6 @@ const CheckoutProduct = ({id, title, rating, img, color, text, price, quantity})
   const removeAllFromCart = () => {
     dispatch({
       type: CART_REMOVE_ALL_ITEMS,
-      payload: {id}
-    })
-  }
-
-  const removeOneFromCart = () => {
-    dispatch({
-      type: CART_REMOVE_ONE_ITEM,
       payload: {id}
     })
   }
